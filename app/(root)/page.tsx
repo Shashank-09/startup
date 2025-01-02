@@ -5,6 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { Console } from "console";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
+import { auth } from "@/auth";
 
 export default async function Home({searchParams} : {
   searchParams :  Promise<{query? : string }>
@@ -15,6 +16,11 @@ export default async function Home({searchParams} : {
   // const post = await client.fetch(STARTUPS_QUERY)
    
   const params = { search : query || null } 
+
+  const session = await auth()
+
+  
+
 
   const {data : post} = await sanityFetch({ query : STARTUPS_QUERY , params })
 
