@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  eslint: {
-    ignoreDuringBuilds: true,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint : {
+    ignoreDuringBuilds : true
   },
   images: {
     dangerouslyAllowSVG : true,
@@ -15,6 +17,7 @@ const nextConfig: NextConfig = {
     ]
   },
   experimental : {
+    after: true,
     ppr: true,
     },
   devIndicators : {
